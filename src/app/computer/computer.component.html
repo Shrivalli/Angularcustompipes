@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+    <h1> List of Computers </h1>
+    
+     
+          
+    <div>
+      Enter the brand which you want
+      <input type="text" [(ngModel)]="brandname" id=txtbrand #brand>
+    </div>
+    <div>
+    Enter the Purpose for which you need the computer
+    <input  type="text" [(ngModel)]="searchterm" id=txtpurpose #purpose>
+    </div>
+    <div>
+    Enter the range of your budget
+    <input type="text" [(ngModel)]="searchbudget" id=txtbudget #budget>
+  </div>
+  <br/>
+
+  <div> 
+    <table class=table>
+    <tr *ngFor="let c of Computers|brandfilterPipe:brandname|purposefilterPipe:searchterm|budgetfilterPipe:searchbudget" style="margin-bottom:10px;"> 
+      <!-- <tr *ngFor="let c of Computers"> -->
+      <td>{{c.purpose}}</td>
+      <td> {{c.Brandname}}</td>
+      <td>{{c.price}}</td>
+    </tr>
+    </table>
+ </div>
+  
+  <!-- <br/><br/>
+  <div style="text-align: center">
+    <input type="submit" class="btn btn-primary" value="Suggest" (click)="this.Computers=suggest(this.Computers,brand.value)"/>
+    <input type="submit" class="btn btn-danger" value="Reset" (click)="reset()"/>
+  </div>
+  </div>
+   -->
+  

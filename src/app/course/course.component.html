@@ -1,0 +1,76 @@
+<div class="row">
+        <div class="col-xs-12">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+              <div class="col-sm-5 form-group">
+                <label for="courseName">Course Name</label>
+                <input
+                  type="text"
+                  id="courseName"
+                  
+                  name="courseName"
+                  ngModel
+                  required
+                  size=10
+                  #courseName="ngModel">
+              </div>
+              <div style="color:red" 
+                             *ngIf="courseName.errors && (courseName.dirty || courseName.touched)">    
+                                <p *ngIf="courseName.errors.required">
+                                Course Name is required
+                                </p>
+                </div>
+        
+              <div class="col-sm-2 form-group">
+                <label for="courseDesc">Course Description</label>
+                <input
+                  type="date"
+                  id="courseDesc"
+                  
+                  name="courseDesc"
+                  ngModel
+                  required
+                  size=30
+                  #courseDesc="ngModel">
+              </div>
+              <div style="color:red" 
+    *ngIf="courseDesc.errors && (courseDesc.dirty || courseDesc.touched)">    
+    <p *ngIf="courseDesc.errors.required">
+        Course Description is required
+    </p>
+</div>
+              <div class="col-sm-2 form-group">
+                <label for="courseAmount">Course Amount</label>
+                <input
+                  type="number"
+                  id="courseAmount"
+                  min=100
+                  max=200
+                  name="courseAmount"
+                  ngModel
+                  required
+                  #courseAmount="ngModel">
+              </div>
+            </div>
+            <div style="color:red" 
+    *ngIf="courseAmount.errors && (courseAmount.dirty || courseAmount.touched)">    
+    <p *ngIf="courseAmount.errors.required">
+        Course Amount is required
+    </p>
+</div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button
+                  class="btn btn-success"
+                  type="submit">Add</button>
+                <button
+                  class="btn btn-danger"
+                  type="button">Delete</button>
+                <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
